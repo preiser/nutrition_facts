@@ -1,5 +1,4 @@
-require "nutrition_facts/version"
-
 module NutritionFacts
-  # Your code goes here...
 end
+
+require_relative '../config/environment'
