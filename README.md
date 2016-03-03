@@ -2,7 +2,7 @@
 
 This gem can be used to find nutritional facts for a variety of common foods.
 
-The data is pulled from the Nutrionix API. (https://developer.nutritionix.com/docs/v1_1)
+The data is pulled from the Nutritionix API. (https://developer.nutritionix.com/)
 
 ## Installation
 
