@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+NutritionFacts::CLI.new.call
