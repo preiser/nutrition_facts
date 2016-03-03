@@ -1,28 +1,16 @@
 # NutritionFacts
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nutrition_facts`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem can be used to find nutritional facts for a variety of common foods. The data is pulled from the Nutrionix API (https://developer.nutritionix.com/docs/v1_1).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'nutrition_facts'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install nutrition_facts
 
 ## Usage
 
-TODO: Write usage instructions here
+Type ```nutrition_facts``` in your Terminal window and press enter.
 
 ## Development
 
@@ -32,7 +20,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nutrition_facts.
+Bug reports and pull requests are welcome on GitHub at https://github.com/preiser/nutrition_facts.
 
 
 ## License
