@@ -1,7 +1,7 @@
 class NutritionFacts::CLI
 
 def call
-  puts "hello world"
+  puts "Enter the name of a food to see its nutrition facts:"
 end
 
 end
