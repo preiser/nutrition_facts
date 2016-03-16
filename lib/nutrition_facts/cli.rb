@@ -3,11 +3,6 @@ class NutritionFacts::CLI
     start
   end
 
-  def apple_menu
-    puts '1. apple raw, medium'
-    puts '2. apple cooked, large'
-  end
-
   def start
     input = nil
     while input != 'exit'
@@ -15,23 +10,11 @@ class NutritionFacts::CLI
       input = gets.strip.downcase
       case input
       when 'apple'
-        puts <<-DOC.gsub /^\s*/, ''
-      Nutrition Facts for apple raw, medium
-
-      Calories:
-      Protein:
-      Sugar:
-      DOC
-      when 'orange'
-        puts <<-DOC.gsub /^\s*/, ''
-      Nutrition Facts for orange, large
-
-      Calories:
-      Protein:
-      Sugar:
-      DOC
+        NutritionFacts::Item.item_facts
+      when 'list'
+        NutritionFacts::Item.list_items
       else
-        puts 'not sure what you mean, type in a food'
+        puts 'not sure what you mean, type in a food' unless input == 'exit'
     end
 
   end
