@@ -11,7 +11,7 @@ $ gem install nutrition_facts
 ```
 
 ## Usage
-Type `nutrition_facts` in your Terminal window and press enter.
+Type `nutrition-facts` in your Terminal window and press enter.
 
 Follow the on-screen prompts.
 
