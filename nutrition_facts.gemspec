@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'open-uri-s3'
+  spec.add_development_dependency 'json'
 end
