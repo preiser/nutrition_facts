@@ -6,12 +6,11 @@ require 'nutrition_facts/version'
 Gem::Specification.new do |spec|
   spec.name          = 'nutrition_facts'
   spec.version       = NutritionFacts::VERSION
-  spec.authors       = ['preiser']
+  spec.authors       = ['Matthew Preiser']
   spec.email         = ['mattpreiser@gmail.com']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'This gem can be used to find nutritional facts for a large variety of common foods. The data is pulled from the Nutritionix API.'
+  spec.homepage      = "https://github.com/preiser/nutrition_facts"
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -24,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'open-uri-s3'
-  spec.add_development_dependency 'json'
+  spec.add_dependency 'json'
 end
