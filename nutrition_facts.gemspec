@@ -10,18 +10,18 @@ Gem::Specification.new do |spec|
   spec.email         = ['mattpreiser@gmail.com']
 
   spec.summary       = 'This gem can be used to find nutritional facts for a large variety of common foods. The data is pulled from the Nutritionix API.'
-  spec.homepage      = "https://github.com/preiser/nutrition_facts"
+  spec.homepage      = 'https://github.com/preiser/nutrition_facts'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = 'bin'
+  spec.executables << 'nutrition-facts'
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'nokogiri'
-  spec.add_development_dependency 'open-uri-s3'
-  spec.add_dependency 'json'
+  spec.add_development_dependency 'pry', '~> 0'
+  spec.add_development_dependency 'nokogiri', '~> 0'
+  spec.add_development_dependency 'open-uri-s3', '~> 0'
+  spec.add_development_dependency 'json', '~> 0'
 end
