@@ -7,6 +7,7 @@ class NutritionFacts::CLI
 
   def welcome
     system 'clear'
+    puts ""
     puts "--------- Welcome to NutritionFacts CLI ---------"
     puts ""
   end
@@ -19,71 +20,103 @@ class NutritionFacts::CLI
     welcome
     puts "Please type the name of a food to search:"
 
-    user_food_item = gets.chomp
-    get_food_data(user_food_item)
-    display_item_data
+    food_name = gets.chomp
+    get_food_data(food_name)
+    which_item
+
   end
 
-  def get_food_data(name)
-    @food_data = NutritionFacts::Item.find_by_name(name)
+  def get_food_data(food_name)
+    @food_data = NutritionFacts::Item.find_by_name(food_name)
+    # binding.pry
   end
 
-  def display_item_data
+  def which_item
     puts ""
-    puts "#{@food_data.item_name}"
+    puts "1. #{@food_data[0].item_name}"
+    puts "2. #{@food_data[1].item_name}"
+    puts "3. #{@food_data[2].item_name}"
+
+    user_input = nil
+
+    loop do
+    "Please enter 1, 2, or 3, to see more info about that food:"
+    user_input = gets.chomp
+    break if user_input == "1" || user_input == "2" || user_input == "3"
+    puts "Not sure what you meant, please type 1, 2, or 3."
+    end
+
+    if user_input == "1"
+      display_item_1
+    elsif user_input == "2"
+      display_item_2
+    elsif user_input == "3"
+      display_item_3
+    else
+    loop_or_quit
+    end
+
+  end
+
+  def display_item_1
+    puts ""
+    puts "#{@food_data[0].item_name}"
     puts "---"
-    puts "Calories: #{@food_data.nf_calories}"
-    puts "Total Fat: #{@food_data.nf_total_fat}"
-    puts "Protein: #{@food_data.nf_protein}"
-    puts "Dietary Fiber: #{@food_data.nf_dietary_fiber}"
-    puts "Sugar: #{@food_data.nf_sugars}"
+    puts "Calories: #{@food_data[0].nf_calories}"
+    puts "Total Fat: #{@food_data[0].nf_total_fat}"
+    puts "Protein: #{@food_data[0].nf_protein}"
+    puts "Dietary Fiber: #{@food_data[0].nf_dietary_fiber}"
+    puts "Sugar: #{@food_data[0].nf_sugars}"
+    puts "Serving Size: #{@food_data[0].nf_serving_size_qty} #{@food_data[0].nf_serving_size_unit}"
     loop_or_quit
   end
 
+  def display_item_2
+    puts ""
+    puts "#{@food_data[1].item_name}"
+    puts "---"
+    puts "Calories: #{@food_data[1].nf_calories}"
+    puts "Total Fat: #{@food_data[1].nf_total_fat}"
+    puts "Protein: #{@food_data[1].nf_protein}"
+    puts "Dietary Fiber: #{@food_data[1].nf_dietary_fiber}"
+    puts "Sugar: #{@food_data[1].nf_sugars}"
+    puts "Serving Size: #{@food_data[1].nf_serving_size_qty} #{@food_data[1].nf_serving_size_unit}"
+    loop_or_quit
+  end
+
+  def display_item_3
+    puts ""
+    puts "#{@food_data[2].item_name}"
+    puts "---"
+    puts "Calories: #{@food_data[2].nf_calories}"
+    puts "Total Fat: #{@food_data[2].nf_total_fat}"
+    puts "Protein: #{@food_data[2].nf_protein}"
+    puts "Dietary Fiber: #{@food_data[2].nf_dietary_fiber}"
+    puts "Sugar: #{@food_data[2].nf_sugars}"
+    puts "Serving Size: #{@food_data[2].nf_serving_size_qty} #{@food_data[2].nf_serving_size_unit}"
+    loop_or_quit
+  end
+
+
   def loop_or_quit
     puts ""
-    puts 'Please type "new search" or "exit".'
+    puts 'Please type "pick another", "search", or "exit".'
     choice = gets.chomp.downcase
 
     case choice
-    when 'back'
-      current_or_forecast
-    when 'new search'
+    when 'pick another'
+      which_item
+    when 'search'
+      NutritionFacts::Item.reset
       start
     when 'exit'
-      puts 'Goodbye'
+      puts ""
+      puts 'Thanks for using NutritionFacts CLI!'
+      puts ""
     else
+      puts ""
       puts 'Invalid input. Please try again.'
       loop_or_quit
     end
   end
-
-  # def start
-  #   list
-  #   input = nil
-  #   while input != 'exit'
-  #     puts 'Enter the name of a food to see its nutrition facts:'
-  #     input = gets.strip.downcase
-  #
-  #     if input.to_i > 0
-  #       item = @items[input.to_i - 1]
-  #       puts "#{item.name} - #{item.calories}"
-  #     elsif 'list'
-  #       @items
-  #     else
-  #       puts 'not sure what you mean, type in a food' unless input == 'exit'
-  #     end
-  #
-  #   end
-  # end
-
-  # def list
-  #   puts ''
-  #   puts 'Welcome to NutritionFacts CLI'
-  #   puts ''
-  #   @items = NutritionFacts::Item.list_items
-  #   @items.each.with_index(1) do |item, index|
-  #     puts "#{index}. - #{item.name}"
-  #   end
-  # end
 end
