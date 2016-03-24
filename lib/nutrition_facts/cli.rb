@@ -20,7 +20,7 @@ class NutritionFacts::CLI
     welcome
     puts "Please type the name of a food to search:"
 
-    food_name = gets.chomp
+    food_name = gets.chomp.gsub(" ","%20")
     get_food_data(food_name)
     which_item
 
@@ -36,6 +36,7 @@ class NutritionFacts::CLI
     puts "1. #{@food_data[0].item_name}"
     puts "2. #{@food_data[1].item_name}"
     puts "3. #{@food_data[2].item_name}"
+    puts ""
 
     user_input = nil
 
@@ -62,12 +63,15 @@ class NutritionFacts::CLI
     puts ""
     puts "#{@food_data[0].item_name}"
     puts "---"
-    puts "Calories: #{@food_data[0].nf_calories}"
-    puts "Total Fat: #{@food_data[0].nf_total_fat}"
-    puts "Protein: #{@food_data[0].nf_protein}"
-    puts "Dietary Fiber: #{@food_data[0].nf_dietary_fiber}"
-    puts "Sugar: #{@food_data[0].nf_sugars}"
-    puts "Serving Size: #{@food_data[0].nf_serving_size_qty} #{@food_data[0].nf_serving_size_unit}"
+    puts "Calories: #{@food_data[0].nf_calories} kcal"
+    puts "Total Fat: #{@food_data[0].nf_total_fat}g"
+    puts "Protein: #{@food_data[0].nf_protein}g"
+    puts "Dietary Fiber: #{@food_data[0].nf_dietary_fiber}g"
+    puts "Sugar: #{@food_data[0].nf_sugars}g"
+    puts "Sodium: #{@food_data[0].nf_sodium}mg"
+    puts "Vitamin C: #{@food_data[0].nf_vitamin_c_dv}%"
+    puts "Vitamin A: #{@food_data[0].nf_vitamin_a_dv}%"
+    puts "Serving Size: #{@food_data[0].nf_serving_weight_grams}g"
     loop_or_quit
   end
 
@@ -75,12 +79,15 @@ class NutritionFacts::CLI
     puts ""
     puts "#{@food_data[1].item_name}"
     puts "---"
-    puts "Calories: #{@food_data[1].nf_calories}"
-    puts "Total Fat: #{@food_data[1].nf_total_fat}"
-    puts "Protein: #{@food_data[1].nf_protein}"
-    puts "Dietary Fiber: #{@food_data[1].nf_dietary_fiber}"
-    puts "Sugar: #{@food_data[1].nf_sugars}"
-    puts "Serving Size: #{@food_data[1].nf_serving_size_qty} #{@food_data[1].nf_serving_size_unit}"
+    puts "Calories: #{@food_data[1].nf_calories} kcal"
+    puts "Total Fat: #{@food_data[1].nf_total_fat}g"
+    puts "Protein: #{@food_data[1].nf_protein}g"
+    puts "Dietary Fiber: #{@food_data[1].nf_dietary_fiber}g"
+    puts "Sugar: #{@food_data[1].nf_sugars}g"
+    puts "Sodium: #{@food_data[1].nf_sodium}mg"
+    puts "Vitamin C: #{@food_data[1].nf_vitamin_c_dv}%"
+    puts "Vitamin A: #{@food_data[1].nf_vitamin_a_dv}%"
+    puts "Serving Size: #{@food_data[1].nf_serving_weight_grams}g"
     loop_or_quit
   end
 
@@ -88,23 +95,26 @@ class NutritionFacts::CLI
     puts ""
     puts "#{@food_data[2].item_name}"
     puts "---"
-    puts "Calories: #{@food_data[2].nf_calories}"
-    puts "Total Fat: #{@food_data[2].nf_total_fat}"
-    puts "Protein: #{@food_data[2].nf_protein}"
-    puts "Dietary Fiber: #{@food_data[2].nf_dietary_fiber}"
-    puts "Sugar: #{@food_data[2].nf_sugars}"
-    puts "Serving Size: #{@food_data[2].nf_serving_size_qty} #{@food_data[2].nf_serving_size_unit}"
+    puts "Calories: #{@food_data[2].nf_calories} kcal"
+    puts "Total Fat: #{@food_data[2].nf_total_fat}g"
+    puts "Protein: #{@food_data[2].nf_protein}g"
+    puts "Dietary Fiber: #{@food_data[2].nf_dietary_fiber}g"
+    puts "Sugar: #{@food_data[2].nf_sugars}g"
+    puts "Sodium: #{@food_data[2].nf_sodium}mg"
+    puts "Vitamin C: #{@food_data[2].nf_vitamin_c_dv}%"
+    puts "Vitamin A: #{@food_data[2].nf_vitamin_a_dv}%"
+    puts "Serving Size: #{@food_data[2].nf_serving_weight_grams}g"
     loop_or_quit
   end
 
 
   def loop_or_quit
     puts ""
-    puts 'Please type "pick another", "search", or "exit".'
+    puts 'Please type "other", "search", or "exit".'
     choice = gets.chomp.downcase
 
     case choice
-    when 'pick another'
+    when 'other'
       which_item
     when 'search'
       NutritionFacts::Item.reset
