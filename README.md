@@ -3,6 +3,9 @@ This gem can be used to find nutritional facts for a variety of common foods.
 
 The data is pulled from the [Nutritionix API](https://developer.nutritionix.com/).
 
+An accompanying blog post about building this gem:
+[http://preiser.io/Nutrition-Facts-CLI.html](http://preiser.io/Nutrition-Facts-CLI.html)
+
 ## Installation
 Add this line to your application's Gemfile:
 
