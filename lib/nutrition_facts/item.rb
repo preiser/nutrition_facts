@@ -1,19 +1,9 @@
 class NutritionFacts::Item
-  attr_accessor :total_hits,
-                :hits,
-                :max_score,
-                :item_name,
-                :nf_calories,
-                :nf_total_fat,
-                :nf_total_carbohydrate,
-                :nf_dietary_fiber,
-                :nf_sugars,
-                :nf_protein,
-                :nf_serving_size_qty,
-                :nf_serving_size_unit,
-                :nf_serving_weight_grams,
-                :nf_sodium,
-                :nf_vitamin_c_dv,
+  attr_accessor :total_hits, :hits, :max_score,
+                :item_name, :nf_calories, :nf_total_fat,
+                :nf_total_carbohydrate, :nf_dietary_fiber, :nf_sugars,
+                :nf_protein, :nf_serving_size_qty, :nf_serving_size_unit,
+                :nf_serving_weight_grams, :nf_sodium, :nf_vitamin_c_dv,
                 :nf_vitamin_a_dv
 
   @@all = []
