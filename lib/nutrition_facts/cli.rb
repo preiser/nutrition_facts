@@ -42,61 +42,29 @@ class NutritionFacts::CLI
     end
 
     if user_input == '1'
-      display_item_1
+      display_item(@food_data[0])
     elsif user_input == '2'
-      display_item_2
+      display_item(@food_data[1])
     elsif user_input == '3'
-      display_item_3
+      display_item(@food_data[2])
     else
       loop_or_quit
     end
   end
 
-  def display_item_1
+  def display_item(food_item_data)
     puts ''
-    puts @food_data[0].item_name.to_s
+    puts food_item_data.item_name.to_s
     puts '---'
-    puts "Calories: #{@food_data[0].nf_calories} kcal"
-    puts "Total Fat: #{@food_data[0].nf_total_fat}g"
-    puts "Protein: #{@food_data[0].nf_protein}g"
-    puts "Dietary Fiber: #{@food_data[0].nf_dietary_fiber}g"
-    puts "Sugar: #{@food_data[0].nf_sugars}g"
-    puts "Sodium: #{@food_data[0].nf_sodium}mg"
-    puts "Vitamin C: #{@food_data[0].nf_vitamin_c_dv}%"
-    puts "Vitamin A: #{@food_data[0].nf_vitamin_a_dv}%"
-    puts "Serving Size: #{@food_data[0].nf_serving_weight_grams}g"
-    loop_or_quit
-  end
-
-  def display_item_2
-    puts ''
-    puts @food_data[1].item_name.to_s
-    puts '---'
-    puts "Calories: #{@food_data[1].nf_calories} kcal"
-    puts "Total Fat: #{@food_data[1].nf_total_fat}g"
-    puts "Protein: #{@food_data[1].nf_protein}g"
-    puts "Dietary Fiber: #{@food_data[1].nf_dietary_fiber}g"
-    puts "Sugar: #{@food_data[1].nf_sugars}g"
-    puts "Sodium: #{@food_data[1].nf_sodium}mg"
-    puts "Vitamin C: #{@food_data[1].nf_vitamin_c_dv}%"
-    puts "Vitamin A: #{@food_data[1].nf_vitamin_a_dv}%"
-    puts "Serving Size: #{@food_data[1].nf_serving_weight_grams}g"
-    loop_or_quit
-  end
-
-  def display_item_3
-    puts ''
-    puts @food_data[2].item_name.to_s
-    puts '---'
-    puts "Calories: #{@food_data[2].nf_calories} kcal"
-    puts "Total Fat: #{@food_data[2].nf_total_fat}g"
-    puts "Protein: #{@food_data[2].nf_protein}g"
-    puts "Dietary Fiber: #{@food_data[2].nf_dietary_fiber}g"
-    puts "Sugar: #{@food_data[2].nf_sugars}g"
-    puts "Sodium: #{@food_data[2].nf_sodium}mg"
-    puts "Vitamin C: #{@food_data[2].nf_vitamin_c_dv}%"
-    puts "Vitamin A: #{@food_data[2].nf_vitamin_a_dv}%"
-    puts "Serving Size: #{@food_data[2].nf_serving_weight_grams}g"
+    puts "Calories: #{food_item_data.nf_calories} kcal"
+    puts "Total Fat: #{food_item_data.nf_total_fat}g"
+    puts "Protein: #{food_item_data.nf_protein}g"
+    puts "Dietary Fiber: #{food_item_data.nf_dietary_fiber}g"
+    puts "Sugar: #{food_item_data.nf_sugars}g"
+    puts "Sodium: #{food_item_data.nf_sodium}mg"
+    puts "Vitamin C: #{food_item_data.nf_vitamin_c_dv}%"
+    puts "Vitamin A: #{food_item_data.nf_vitamin_a_dv}%"
+    puts "Serving Size: #{food_item_data.nf_serving_weight_grams}g"
     loop_or_quit
   end
 
