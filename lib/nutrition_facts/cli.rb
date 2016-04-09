@@ -41,11 +41,7 @@ class NutritionFacts::CLI
       puts 'Not sure what you meant, please type 1, 2, or 3.'
     end
 
-    if user_input == '1'
-      display_item(@food_data[user_input.to_i-1])
-    elsif user_input == '2'
-      display_item(@food_data[user_input.to_i-1])
-    elsif user_input == '3'
+    if user_input == '1' || '2' || '3'
       display_item(@food_data[user_input.to_i-1])
     else
       loop_or_quit
