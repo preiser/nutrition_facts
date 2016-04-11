@@ -45,12 +45,12 @@ class NutritionFacts::CLI
       puts ''
       puts 'Please enter the number of the food to see more info about that item:'
       user_input = gets.chomp
-      break if user_input.to_i.between?(0, 10)
+      break if user_input.to_i.between?(0, @food_data.count)
       puts ''
       puts 'Not sure what you meant, please type the number of the food item.'
     end
 
-    if user_input.to_i.between?(0, 10)
+    if user_input.to_i.between?(0, @food_data.count)
       display_item(@food_data[user_input.to_i - 1])
     else
       loop_or_quit
