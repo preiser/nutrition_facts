@@ -21,9 +21,13 @@ class NutritionFacts::Item
 
     raw_data = JSON.parse(response.body)
 
-    @@all << NutritionFacts::Item.new(raw_data['hits'][0]['fields'])
-    @@all << NutritionFacts::Item.new(raw_data['hits'][1]['fields'])
-    @@all << NutritionFacts::Item.new(raw_data['hits'][2]['fields'])
+    if raw_data['hits'].empty?
+      puts ''
+    else
+      @@all << NutritionFacts::Item.new(raw_data['hits'][0]['fields'])
+      @@all << NutritionFacts::Item.new(raw_data['hits'][1]['fields'])
+      @@all << NutritionFacts::Item.new(raw_data['hits'][2]['fields'])
+    end
   end
 
   def self.all

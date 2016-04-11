@@ -1,23 +1,32 @@
 class NutritionFacts::CLI
   def call
+    welcome
     food_search
   end
 
-  def food_search
+  def welcome
     system 'clear'
     puts ''
     puts '--- Welcome to NutritionFacts CLI ---'
     puts ''
-    puts 'Please type the name of a food to search:'
+  end
 
+  def food_search
+    puts 'Please type the name of a food to search:'
     food_name = gets.chomp.gsub(' ', '%20')
+    get_food_data(food_name)
+
     if food_name == 'exit'
       puts ''
       puts 'Thanks for using NutritionFacts CLI!'
       puts ''
-    else
-      get_food_data(food_name)
+    elsif !@food_data.nil?
       which_item
+    else
+      puts 'That item was not found, please try another search term.'
+      puts ' '
+      NutritionFacts::Item.reset
+      food_search
     end
   end
 
@@ -42,7 +51,7 @@ class NutritionFacts::CLI
     end
 
     if user_input == '1' || '2' || '3'
-      display_item(@food_data[user_input.to_i-1])
+      display_item(@food_data[user_input.to_i - 1])
     else
       loop_or_quit
     end
