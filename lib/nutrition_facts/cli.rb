@@ -19,7 +19,7 @@ class NutritionFacts::CLI
     if food_name == 'exit'
       puts 'Thanks for using NutritionFacts CLI!'
       puts ''
-    elsif !@food_data.nil?
+    elsif !@food_items.nil?
       which_item
     else
       puts 'That item was not found, please try another search term.'
@@ -30,13 +30,13 @@ class NutritionFacts::CLI
   end
 
   def get_food_data(food_name)
-    @food_data = NutritionFacts::Item.find_by_name(food_name)
+    @food_items = NutritionFacts::Item.find_by_name(food_name)
   end
 
   def which_item
     puts ''
-    @food_data.each.with_index do |_data, index|
-      puts "#{index + 1}. #{@food_data[index].item_name}"
+    @food_items.each.with_index do |_data, index|
+      puts "#{index + 1}. #{@food_items[index].item_name}"
     end
 
     user_input = nil
@@ -45,13 +45,13 @@ class NutritionFacts::CLI
       puts ''
       puts 'Please enter the number of the food to see more info about that item:'
       user_input = gets.chomp
-      break if user_input.to_i.between?(0, @food_data.count)
+      break if user_input.to_i.between?(0, @food_items.count)
       puts ''
       puts 'Not sure what you meant, please type the number of the food item.'
     end
 
-    if user_input.to_i.between?(0, @food_data.count)
-      display_item(@food_data[user_input.to_i - 1])
+    if user_input.to_i.between?(0, @food_items.count)
+      display_item(@food_items[user_input.to_i - 1])
     else
       loop_or_quit
     end
