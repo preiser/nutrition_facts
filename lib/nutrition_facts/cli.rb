@@ -17,14 +17,13 @@ class NutritionFacts::CLI
     get_food_data(food_name)
 
     if food_name == 'exit'
-      puts ''
       puts 'Thanks for using NutritionFacts CLI!'
       puts ''
     elsif !@food_data.nil?
       which_item
     else
       puts 'That item was not found, please try another search term.'
-      puts ' '
+      puts ''
       NutritionFacts::Item.reset
       food_search
     end
@@ -36,21 +35,22 @@ class NutritionFacts::CLI
 
   def which_item
     puts ''
-    puts "1. #{@food_data[0].item_name}"
-    puts "2. #{@food_data[1].item_name}"
-    puts "3. #{@food_data[2].item_name}"
-    puts ''
+    @food_data.each.with_index do |_data, index|
+      puts "#{index + 1}. #{@food_data[index].item_name}"
+    end
 
     user_input = nil
 
     loop do
-      'Please enter 1, 2, or 3, to see more info about that food:'
+      puts ''
+      puts 'Please enter the number of the food to see more info about that item:'
       user_input = gets.chomp
-      break if user_input == '1' || user_input == '2' || user_input == '3'
-      puts 'Not sure what you meant, please type 1, 2, or 3.'
+      break if user_input.to_i.between?(0, 10)
+      puts ''
+      puts 'Not sure what you meant, please type the number of the food item.'
     end
 
-    if user_input == '1' || '2' || '3'
+    if user_input.to_i.between?(0, 10)
       display_item(@food_data[user_input.to_i - 1])
     else
       loop_or_quit
@@ -76,6 +76,7 @@ class NutritionFacts::CLI
   def loop_or_quit
     puts ''
     puts 'Please type "other", "search", or "exit".'
+    puts ''
     choice = gets.chomp.downcase
 
     case choice
