@@ -90,15 +90,22 @@ class NutritionFacts::CLI
     puts ''
     puts food_item_data.item_name.to_s
     puts '---'
+    puts "Serving Size: #{food_item_data.nf_serving_size_qty} #{food_item_data.nf_serving_size_unit}"
+    puts "Serving Weight: #{food_item_data.nf_serving_weight_grams}g"
     puts "Calories: #{food_item_data.nf_calories} kcal"
+    puts "Calories from fat: #{food_item_data.nf_calories_from_fat} kcal"
     puts "Total Fat: #{food_item_data.nf_total_fat}g"
+    puts "Saturated Fat: #{food_item_data.nf_saturated_fat}g"
+    puts "Cholesterol: #{food_item_data.nf_cholesterol}mg"
     puts "Protein: #{food_item_data.nf_protein}g"
-    puts "Dietary Fiber: #{food_item_data.nf_dietary_fiber}g"
+    puts "Total Carbohydrates: #{food_item_data.nf_total_carbohydrate}g"
     puts "Sugar: #{food_item_data.nf_sugars}g"
+    puts "Dietary Fiber: #{food_item_data.nf_dietary_fiber}g"
     puts "Sodium: #{food_item_data.nf_sodium}mg"
     puts "Vitamin C: #{food_item_data.nf_vitamin_c_dv}%"
     puts "Vitamin A: #{food_item_data.nf_vitamin_a_dv}%"
-    puts "Serving Size: #{food_item_data.nf_serving_weight_grams}g"
+    puts "Calcium: #{food_item_data.nf_calcium_dv}%"
+    puts "Iron: #{food_item_data.nf_iron_dv}%"
     loop_or_quit
   end
 end

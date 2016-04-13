@@ -4,7 +4,9 @@ class NutritionFacts::Item
                 :nf_total_carbohydrate, :nf_dietary_fiber, :nf_sugars,
                 :nf_protein, :nf_serving_size_qty, :nf_serving_size_unit,
                 :nf_serving_weight_grams, :nf_sodium, :nf_vitamin_c_dv,
-                :nf_vitamin_a_dv
+                :nf_vitamin_a_dv, :nf_calories_from_fat, :nf_saturated_fat,
+                :nf_cholesterol, :nf_calcium_dv, :nf_iron_dv,
+                :nf_serving_size_qty, :nf_serving_size_unit
 
   @@all = []
 
@@ -15,7 +17,7 @@ class NutritionFacts::Item
   end
 
   def self.find_by_name(name)
-    uri = URI.parse("https://api.nutritionix.com/v1_1/search/#{name}?results=0%3A9&cal_min=0&cal_max=50000&fields=item_name%2Cnf_calories%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_dietary_fiber%2Cnf_sugars%2Cnf_protein%2Cnf_serving_weight_grams%2Cnf_sodium%2Cnf_vitamin_a_dv%2Cnf_vitamin_c_dv&appId=da276553&appKey=f501b79647768ba684af20428a44ef59")
+    uri = URI.parse("https://api.nutritionix.com/v1_1/search/#{name}?results=0%3A9&cal_min=0&cal_max=50000&fields=item_name%2Cnf_calories%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_dietary_fiber%2Cnf_sugars%2Cnf_protein%2Cnf_serving_weight_grams%2Cnf_cholesterol%2Cnf_saturated_fat%2Cnf_calories_from_fat%2Cnf_sodium%2Cnf_calcium_dv%2Cnf_iron_dv%2Cnf_vitamin_a_dv%2Cnf_vitamin_c_dv%2Cnf_serving_size_qty%2Cnf_serving_size_unit&appId=da276553&appKey=f501b79647768ba684af20428a44ef59")
 
     response = Net::HTTP.get_response(uri)
 
