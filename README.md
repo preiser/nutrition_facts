@@ -1,5 +1,12 @@
 # NutritionFacts
-This gem can be used to find nutritional facts for a variety of common foods.
+This gem can be used to find nutritional facts for a large variety of food items including brand names, specific restaurant items, and grocery foods.
+
+Example searches:
+  - mcdonalds french fries
+  - chipotle burrito
+  - almonds
+  - blueberry pie
+  - corned beef on rye
 
 The data is pulled from the [Nutritionix API](https://developer.nutritionix.com/).
 
