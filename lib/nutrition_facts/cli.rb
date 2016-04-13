@@ -15,7 +15,14 @@ class NutritionFacts::CLI
     puts 'Please type the name of a food to search:'
     puts ''
     food_name = gets.chomp.gsub(' ', '%20')
-    get_food_data(food_name)
+    if food_name == 'exit'
+      puts ''
+      puts 'Thanks for using NutritionFacts CLI!'
+      puts ''
+      Kernel.abort
+    else
+      get_food_data(food_name)
+    end
   end
 
   def get_food_data(food_name)
@@ -40,7 +47,12 @@ class NutritionFacts::CLI
 
     user_input = gets.chomp.downcase
 
-    if user_input.to_i.between?(0, @food_items.count)
+    if user_input == 'exit'
+      puts ''
+      puts 'Thanks for using NutritionFacts CLI!'
+      puts ''
+      Kernel.abort
+    elsif user_input.to_i.between?(0, @food_items.count)
       display_item(@food_items[user_input.to_i - 1])
       loop_or_quit
     else !user_input.to_i.between?(0, @food_items.count)
