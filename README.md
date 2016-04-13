@@ -7,6 +7,7 @@ Example searches:
   - almonds
   - blueberry pie
   - corned beef on rye
+  - pecan crusted rainbow trout
 
 The data is pulled from the [Nutritionix API](https://developer.nutritionix.com/).
 
