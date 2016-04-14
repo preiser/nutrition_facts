@@ -32,6 +32,7 @@ class NutritionFacts::CLI
 
   def which_item
     if @food_items.empty?
+      puts ''
       puts 'That item was not found, please try another search term.'
       puts ''
       NutritionFacts::Item.reset
