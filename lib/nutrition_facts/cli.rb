@@ -55,7 +55,7 @@ class NutritionFacts::CLI
     elsif user_input.to_i.between?(1, @food_items.count)
       display_item(@food_items[user_input.to_i - 1])
       loop_or_quit
-    else !user_input.to_i.between?(1, @food_items.count)
+    else
          puts ''
          puts 'Not sure what you meant, please type the number of the food item.'
          which_item
