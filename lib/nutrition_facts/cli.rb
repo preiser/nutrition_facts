@@ -52,10 +52,10 @@ class NutritionFacts::CLI
       puts 'Thanks for using NutritionFacts CLI!'
       puts ''
       Kernel.abort
-    elsif user_input.to_i.between?(0, @food_items.count)
+    elsif user_input.to_i.between?(1, @food_items.count)
       display_item(@food_items[user_input.to_i - 1])
       loop_or_quit
-    else !user_input.to_i.between?(0, @food_items.count)
+    else !user_input.to_i.between?(1, @food_items.count)
          puts ''
          puts 'Not sure what you meant, please type the number of the food item.'
          which_item
