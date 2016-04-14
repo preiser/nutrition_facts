@@ -26,11 +26,10 @@ class NutritionFacts::Item
     if raw_data['hits'].empty?
       puts ''
     else
-      i = 0
       num = raw_data['hits'].count
-      while i < num
-        @@all << NutritionFacts::Item.new(raw_data['hits'][i]['fields'])
-        i += 1
+      hits_array = raw_data['hits']
+      hits_array.each do |item|
+        @@all << NutritionFacts::Item.new(item['fields'])
       end
     end
     @@all
