@@ -35,7 +35,6 @@ class NutritionFacts::CLI
       puts ''
       puts 'That item was not found, please try another search term.'
       puts ''
-      NutritionFacts::Item.reset
       food_search
     else
       puts ''
@@ -73,7 +72,6 @@ class NutritionFacts::CLI
     when 'other'
       which_item
     when 'search'
-      NutritionFacts::Item.reset
       call
     when 'exit'
       puts ''
