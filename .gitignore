@@ -20,6 +20,7 @@
 /tmp/
 *.DS_Store
 
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
