@@ -8,7 +8,6 @@ class NutritionFacts::Item
                 :nf_cholesterol, :nf_calcium_dv, :nf_iron_dv,
                 :nf_serving_size_qty, :nf_serving_size_unit
 
-
   def initialize(item_list = {})
     item_list.each do |key, value|
       send("#{key}=", value)
@@ -25,7 +24,7 @@ class NutritionFacts::Item
 
     raw_data = JSON.parse(response.body)
 
-    if !raw_data['hits'].empty?
+    unless raw_data['hits'].empty?
       num = raw_data['hits'].count
       hits_array = raw_data['hits']
       hits_array.each do |item|
@@ -34,5 +33,4 @@ class NutritionFacts::Item
     end
     returned_items
   end
-
 end

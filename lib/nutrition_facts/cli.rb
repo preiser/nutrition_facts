@@ -56,9 +56,9 @@ class NutritionFacts::CLI
       display_item(@food_items[user_input.to_i - 1])
       loop_or_quit
     else
-         puts ''
-         puts 'Not sure what you meant, please type the number of the food item.'
-         which_item
+      puts ''
+      puts 'Not sure what you meant, please type the number of the food item.'
+      which_item
     end
   end
 
