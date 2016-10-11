@@ -6,7 +6,7 @@ class NutritionFacts::CLI
 
   def welcome
     system 'clear'
-    puts ''
+    puts ' '
     puts '--- Welcome to NutritionFacts CLI ---'
     puts ''
   end
