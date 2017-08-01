@@ -18,10 +18,9 @@ Gem::Specification.new do |spec|
   spec.executables << 'nutrition-facts'
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.11'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'pry', '~> 0'
-  spec.add_development_dependency 'nokogiri', '~> 0'
-  spec.add_development_dependency 'open-uri-s3', '~> 0'
-  spec.add_development_dependency 'json', '~> 0'
+  spec.add_dependency 'open-uri-s3'
+  spec.add_dependency 'json'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'pry'
 end
