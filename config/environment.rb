@@ -1,5 +1,4 @@
 require 'pry'
-require 'nokogiri'
 require 'open-uri-s3'
 require 'json'
 
